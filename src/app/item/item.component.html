@@ -1,22 +1,28 @@
 <div class="item">
+    <mat-card>
     <h3>{{ item.description }}</h3>
-    <div class="btn-wrapper" *ngIf="!editable">
-      <button class="btn" (click)="editable = !editable">Edit</button>
-      <button class="btn btn-warn" (click)="remove.emit()">Delete</button>
+    <div class="btn-wrapper" *ngIf="admin">
+      <button mat-raised-button color="accent" class="btn" (click)="editable = !editable">Edit</button>
+      <button mat-button color="warn" class="btn btn-warn" (click)="remove.emit()">Delete</button>
     </div>
+  </mat-card>
+    
+  
   
     <!-- This section shows only if user clicks Edit button -->
-    <div *ngIf="editable">
-      <input
+   
+    <div class="editItem" *ngIf="admin && editable">
+      <mat-form-field>
+      <input matInput
         class="sm-text-input"
         placeholder="edit item"
         [value]="item.description"
         #editedItem
         (keyup.enter)="saveItem(editedItem.value)" />
-  
+      </mat-form-field>
       <div class="btn-wrapper">
-        <button class="btn" (click)="editable = !editable">Cancel</button>
-        <button class="btn btn-save" (click)="saveItem(editedItem.value)">
+        <button mat-raised-button color="warn" class="btn" (click)="admin = !admin">Cancel</button>
+        <button mat-raised-button color="accent" class="btn btn-save" (click)="saveItem(editedItem.value)">
           Save
         </button>
       </div>

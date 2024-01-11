@@ -9,6 +9,7 @@ import { Item } from "../item";
 
 export class ItemComponent {
 
+  admin = true;
   editable = false;
 
   @Input() item!: Item;
@@ -16,7 +17,7 @@ export class ItemComponent {
 
   saveItem(description: string) {
     if (!description) return;
-    this.editable = false;
+    this.admin = false;
     this.item.description = description;
   }
 }

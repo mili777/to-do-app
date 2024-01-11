@@ -9,7 +9,7 @@ import { Item } from "./item";
 
 export class AppComponent {
   title = 'To-Do-App';
-
+  
   filter: "all" | "active" | "done" = "all"
 
   allItems = [
@@ -17,7 +17,6 @@ export class AppComponent {
     {description: "sleep", done: false},
     {description: "play", done: false}
   ]
-
   get items() {
     if(this.filter === "all") {
       return this.allItems
@@ -28,10 +27,13 @@ export class AppComponent {
   }
 
   addItem(description: string) {
-    this.allItems.unshift({
-      description,
-      done: false
-    })
+    if (description.length > 2) {
+      this.allItems.unshift({
+        description,
+        done: false
+      })
+    }
+    
   }
 
   remove(item: Item) {

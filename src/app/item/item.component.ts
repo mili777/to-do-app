@@ -9,15 +9,10 @@ import { Item } from "../item";
 
 export class ItemComponent {
 
-  admin = true;
   editable = false;
 
   @Input() item!: Item;
+  @Input() admin: any;
   @Output() remove = new EventEmitter<Item>();
 
-  saveItem(description: string) {
-    if (!description) return;
-    this.admin = false;
-    this.item.description = description;
-  }
 }

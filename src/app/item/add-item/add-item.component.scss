@@ -1,0 +1,19 @@
+.addItemWrapper {
+    margin-bottom: 50px;
+}
+
+.addItem {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 30px;
+}
+
+.mat-form-field {
+    width: 100%;
+}
+
+span {
+    color: red;
+    font-size: 12px;
+}

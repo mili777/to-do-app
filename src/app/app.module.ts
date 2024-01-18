@@ -11,11 +11,19 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
 import {MatDialogModule} from '@angular/material/dialog';
+import { AddItemComponent } from './item/add-item/add-item.component';
+import { EditItemComponent } from './item/edit-item/edit-item.component';
+import { ItemsComponent } from './items/items.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ItemComponent
+    ItemComponent,
+    AddItemComponent,
+    EditItemComponent,
+    ItemsComponent,
+    LoginComponent  
   ],
   imports: [
     BrowserModule,

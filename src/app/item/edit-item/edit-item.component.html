@@ -1,0 +1,16 @@
+<div class="editItem" *ngIf="admin && editable">
+    <mat-form-field>
+    <input matInput
+      class="sm-text-input"
+      placeholder="edit item"
+      [value]="item.description"
+      #editedItem
+      (keyup.enter)="saveItem(editedItem.value)" />
+    </mat-form-field>
+    <div class="btn-wrapper">
+      <button mat-raised-button color="warn" class="btn" (click)="editable = false">Cancel</button>
+      <button mat-raised-button color="accent" class="btn btn-save" [disabled]="editedItem.value.length > 4 ? false : true" (click)="saveItem(editedItem.value)">
+        Save
+      </button>
+    </div>
+</div>

@@ -1,29 +1,6 @@
 <div class="main">
-  <h1>My To Do List</h1>
-
-<div class="addItem">
-  <mat-form-field>
-    
-<mat-label>What would you like to do today?</mat-label>
-<input
-  matInput
-  #newItem
-  (keyup.enter)="addItem(newItem.value); newItem.value = ''"
-  id="addItemInput" />
-</mat-form-field>
-<button mat-raised-button class="btn-primary" (click)="addItem(newItem.value)">Add</button>
-</div>
-<h2>
-  You already have 
-  {{items.length}}
-  <span *ngIf="items.length === 1; else elseBlock">item</span>
-  <ng-template #elseBlock>items</ng-template>
-  in your list.
-</h2>
-
-<ul class="itemsList">
-  <li *ngFor="let i of items">
-    <app-item (remove)="remove(i)" [item]="i"></app-item>
-  </li>
-</ul>
+  <app-items *ngIf="loggedIn;else login" [admin]="admin"></app-items>
+  <ng-template #login>
+    <app-login (onLogin)="onLogin($event)" (onAdmin)="onAdmin($event)" [users]="users"></app-login>
+  </ng-template>
 </div>

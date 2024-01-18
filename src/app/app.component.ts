@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Item } from "./item";
 
 @Component({
   selector: 'app-root',
@@ -9,34 +8,29 @@ import { Item } from "./item";
 
 export class AppComponent {
   title = 'To-Do-App';
-  
-  filter: "all" | "active" | "done" = "all"
+  loggedIn;
+  admin;
 
-  allItems = [
-    {description: "eat", done: true},
-    {description: "sleep", done: false},
-    {description: "play", done: false}
+  users = [
+    {
+      username: "sladjan",
+      password: "sladjan123",
+      admin: true
+    },
+    {
+      username: "john",
+      password: "john1234",
+      admin: false
+    }
   ]
-  get items() {
-    if(this.filter === "all") {
-      return this.allItems
-    }
-    return this.allItems.filter((item) =>
-      this.filter === "done" ? item.done : !item.done
-    )
+$eval: any;
+
+  onLogin(login) {
+    this.loggedIn = login;
   }
 
-  addItem(description: string) {
-    if (description.length > 2) {
-      this.allItems.unshift({
-        description,
-        done: false
-      })
-    }
-    
+  onAdmin(admin) {
+    this.admin = admin;
   }
 
-  remove(item: Item) {
-    this.allItems.splice(this.allItems.indexOf(item), 1);
-  }
 }

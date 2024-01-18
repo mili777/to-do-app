@@ -1,0 +1,18 @@
+<div class="items">
+<h1>My To Do List</h1>
+
+<app-add-item [allItems]="allItems"></app-add-item>
+<h2>
+  You already have 
+  {{items.length}}
+  <span *ngIf="items.length === 1; else elseBlock">item</span>
+  <ng-template #elseBlock>items</ng-template>
+  in your list.
+</h2>
+
+<ul class="itemsList">
+  <li *ngFor="let i of items">
+    <app-item [admin]="admin" (remove)="remove(i)" [item]="i"></app-item>
+  </li>
+</ul>
+</div>

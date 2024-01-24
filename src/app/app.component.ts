@@ -23,7 +23,7 @@ export class AppComponent {
       admin: false
     }
   ]
-$eval: any;
+
 
   onLogin(login) {
     this.loggedIn = login;

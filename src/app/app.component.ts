@@ -11,13 +11,15 @@ export class AppComponent {
   loggedIn;
   admin;
 
-  users = [
+  usersDB = [
     {
-      username: "sladjan",
-      password: "sladjan123",
+      id: "1",
+      username: "",
+      password: "",
       admin: true
     },
     {
+      id: "2",
       username: "john",
       password: "john1234",
       admin: false

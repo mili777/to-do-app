@@ -1,15 +1,60 @@
 {
-    "users": [
-      { "id": "1", "username": "sladjan", "password": "sladjan123", "admin": true },
-      { "id": "2", "username": "john", "password": "john123", "admin": false }
-    ],
-    "tasks": [
-      { "id": "1", "description": "Wake up", "done": true, "owner_id": "1" },
-      { "id": "2", "description": "Make breakfast", "done": false, "owner_id": "1" },
-      { "id": "3", "description": "Do homework", "done": false, "owner_id": "2" },
-      { "id": "4", "description": "Take a nap", "done": true, "owner_id": "2" },
-      { "id": "5", "description": "Do GYM", "done": true, "owner_id": "1" },
-      { "id": "6", "description": "Make a salad", "done": false, "owner_id": "2" },
-      { "id": "7", "description": "Learn Angular", "done": true, "owner_id": "1" }
-    ]
-  }
+  "users": [
+    {
+      "id": "1",
+      "username": "sladjan",
+      "password": "sladjan123",
+      "admin": true
+    },
+    {
+      "id": "2",
+      "username": "john",
+      "password": "john123",
+      "admin": false
+    }
+  ],
+  "tasks": [
+    {
+      "id": "3",
+      "description": "Do homework",
+      "done": false,
+      "owner_id": "2"
+    },
+    {
+      "id": "4",
+      "description": "Take a nap",
+      "done": true,
+      "owner_id": "2"
+    },
+    {
+      "id": "5",
+      "description": "Do GYM",
+      "done": true,
+      "owner_id": "1"
+    },
+    {
+      "id": "6",
+      "description": "Make a salad",
+      "done": false,
+      "owner_id": "2"
+    },
+    {
+      "id": "8",
+      "description": "whattttt",
+      "done": false,
+      "owner_id": "1"
+    },
+    {
+      "id": "241206",
+      "description": "New item ",
+      "done": false,
+      "owner_id": "1"
+    },
+    {
+      "id": "321384",
+      "description": "dsfsd dsgsdg sdg sgdg dsg",
+      "done": false,
+      "owner_id": "1"
+    }
+  ]
+}

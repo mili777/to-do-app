@@ -14,7 +14,7 @@ export class ItemsComponent implements OnInit {
 
   private apiUrl = 'http://localhost:3000/tasks';
   
-  allItems = [{description: "eat", done: true, owner: "1"}];
+  allItems = [{id: "1", description: "eat", done: true, owner_id: "1"}];
 
   ngOnInit(): void {
     
@@ -31,19 +31,22 @@ export class ItemsComponent implements OnInit {
   
   @Input() admin: any;
 
-  filter: "0" | "1" = "0"
+  //filter: "0" | "1" | "all" = "0"
   
   get items() {
-    // if(this.filter === "all") {
-    //   return this.allItems
-    // }
     return this.allItems.filter((item) =>
-      this.filter === "1" ? item.done : !item.done
+      item.owner_id === "1"
     )
   }
-  
-  remove(item: Item) {
-    this.allItems.splice(this.allItems.indexOf(item), 1);
-  }
 
+  remove(item: Item) {
+    console.log(item.id)
+    axios.delete(`http://localhost:3000/tasks/${item.id}`)
+      .then(response => {
+        console.log(`Deleted post with ID ${item.id}`);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+    }
 }

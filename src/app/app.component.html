@@ -1,6 +1,6 @@
 <div class="main">
   <app-items *ngIf="loggedIn;else login" [admin]="admin"></app-items>
   <ng-template #login>
-    <app-login (onLogin)="onLogin($event)" (onAdmin)="onAdmin($event)" [users]="users"></app-login>
+    <app-login (onLogin)="onLogin($event)" (onAdmin)="onAdmin($event)" [usersDB]="usersDB"></app-login>
   </ng-template>
 </div>

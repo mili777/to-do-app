@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import axios from 'axios';
 
 @Component({
   selector: 'app-add-item',
@@ -9,20 +10,21 @@ export class AddItemComponent implements OnInit {
 
   constructor() { }
 
-  @Input() allItems : any[] = [];
+ // @Input() allItems : any[] = [];
   valid = true;
 
-  addItem(description: string) {
-    if (description.length > 4) {
-      this.allItems.unshift({
-        description,
-        done: false
-      })
-      this.valid = true;
-    } else {
-      this.valid = false;
-    }
-    
+  addItem(description: string) { 
+    const id = Math.floor((Math.random() * 1000000) + 1);
+    axios({
+      method: 'post',
+      url: 'http://localhost:3000/tasks',
+      data: {
+        id: `${id}`,
+        description: description,
+        done: false,
+        owner_id: "1"
+      }
+    });
   }
 
   ngOnInit(): void {

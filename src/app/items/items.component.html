@@ -10,6 +10,9 @@
   <ng-template #elseBlock>items</ng-template>
   in your list.
 </h2>
+<div>User id: {{ id$ | async }}</div>
+<div>User name: {{ name$ | async }}</div>
+<div>Item: {{ selectDoubleItem$ | async }}</div>
 
 <ul class="itemsList">
   <li *ngFor="let i of items">

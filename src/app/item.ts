@@ -1,6 +1,6 @@
 export interface Item {
-    id: string;
-    description: string;
-    done: boolean;
-    owner_id: string;
+    id?: number;
+    description?: string;
+    done?: boolean;
+    owner_id?: number;
 }

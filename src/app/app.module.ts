@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule }  from '@angular/common/http';
 
 import { StoreModule } from '@ngrx/store';
-import { addUserReducer } from './reducers/user.reducer';
+import { idReducer, nameReducer } from './user.reducer';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +19,9 @@ import { AddItemComponent } from './item/add-item/add-item.component';
 import { EditItemComponent } from './item/edit-item/edit-item.component';
 import { ItemsComponent } from './items/items.component';
 import { LoginComponent } from './login/login.component';
+import { EffectsModule } from '@ngrx/effects';
+import { ItemEffects } from './ItemsStore/items.effects';
+
 
 @NgModule({
   declarations: [
@@ -39,7 +42,8 @@ import { LoginComponent } from './login/login.component';
     MatCardModule,
     MatDialogModule,
     HttpClientModule,
-    StoreModule.forRoot({user: addUserReducer})
+    StoreModule.forRoot({ id: idReducer, name: nameReducer }),
+    EffectsModule.forRoot([ItemEffects]),
   ],
   providers: [],
   bootstrap: [AppComponent]

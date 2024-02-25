@@ -1,9 +1,9 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from '../user';
-import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { AppState } from '../app.state';
+import { Store } from '@ngrx/store';
+import { addID, getName } from '../user.actions';
+
 
 @Component({
   selector: 'app-login',
@@ -11,31 +11,32 @@ import { AppState } from '../app.state';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  constructor(private store: Store<any>,private _router : Router) {
+  }
+   
+  
+  addID(id: number) {
+    this.store.dispatch(addID({ id }));
+  }
 
-  users: Observable<User[]>;
+  getName(name: string) {
+    this.store.dispatch(getName({ name }));
+  }
 
-  constructor(private store: Store<AppState>, private _router : Router) {
-    this.users = this.store.select(state => state.user);
-   }
-
+  
   @Input() usersDB;
   @Output() onLogin = new EventEmitter<any>();
   @Output() onAdmin = new EventEmitter<any>();
 
   login(username, password) {
-
     this.usersDB.forEach(user => {
       if(user.username === username && user.password === password) {
         this.onLogin.emit(true);
         this.onAdmin.emit(user.admin);
         this._router.navigateByUrl('/dashboard');
-        this.store.dispatch({
-          type: 'ADD_USER',
-          payload: <User> {
-            username: user.username,
-            admin: user.admin
-          }
-        });
+        this.getName(user.username)
+        this.addID(user.id)
+        
       }
     });
   }

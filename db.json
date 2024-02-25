@@ -18,43 +18,37 @@
       "id": "3",
       "description": "Do homework",
       "done": false,
-      "owner_id": "2"
+      "owner_id": 2
     },
     {
       "id": "4",
       "description": "Take a nap",
       "done": true,
-      "owner_id": "2"
+      "owner_id": 2
     },
     {
       "id": "5",
       "description": "Do GYM",
       "done": true,
-      "owner_id": "1"
+      "owner_id": 1
     },
     {
       "id": "6",
       "description": "Make a salad",
       "done": false,
-      "owner_id": "2"
+      "owner_id": 2
     },
     {
       "id": "8",
       "description": "whattttt",
       "done": false,
-      "owner_id": "1"
+      "owner_id": 1
     },
     {
-      "id": "241206",
-      "description": "New item ",
+      "id": 428436,
+      "description": "rtre tre ",
       "done": false,
-      "owner_id": "1"
-    },
-    {
-      "id": "321384",
-      "description": "dsfsd dsgsdg sdg sgdg dsg",
-      "done": false,
-      "owner_id": "1"
+      "owner_id": 1
     }
   ]
 }

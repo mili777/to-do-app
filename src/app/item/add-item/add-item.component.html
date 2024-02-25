@@ -8,7 +8,8 @@
     (keyup.enter)="addItem(newItem.value); newItem.value = ''" />
     <mat-hint align="end">{{newItem.value.length}} characters</mat-hint>
   </mat-form-field>
-  <button mat-raised-button class="btn-primary" (click)="addItem(newItem.value); newItem.value = ''">Add</button>
+  <!-- <button mat-raised-button class="btn-primary" (click)="addItem(newItem.value); newItem.value = '';addItems()">Add</button> -->
+  <button mat-raised-button class="btn-primary" (click)="addItems(newItem.value);newItem.value = '';">Add</button>
 </div>
 <span *ngIf="!valid">Please enter 5 or more characters</span>
 </div>
